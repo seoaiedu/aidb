@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 const PORT = process.env.PORT || 3000;
-const ROOT = __dirname;
+const ROOT = path.resolve(__dirname, "..");
 
 const MIME_TYPES = {
   ".html": "text/html; charset=utf-8",
@@ -20,7 +20,6 @@ const server = http.createServer((req, res) => {
   const urlPath = decodeURIComponent(req.url.split("?")[0]);
   let filePath = path.join(ROOT, urlPath === "/" ? "index.html" : urlPath);
 
-  // 디렉터리 탈출 방지
   if (!filePath.startsWith(ROOT)) {
     res.writeHead(403);
     res.end("Forbidden");

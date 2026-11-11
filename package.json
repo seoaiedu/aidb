@@ -4,8 +4,6 @@
   "private": true,
   "description": "AIDB Firebase 연동 스마트 출석확인 웹앱",
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
-    "build": "echo \"Static build ready for Vercel\""
+    "dev": "node scripts/local-server.js"
   }
 }
